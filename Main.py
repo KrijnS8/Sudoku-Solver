@@ -10,9 +10,21 @@ def solve(bo):
 
     pos = find_empty(bo)
     if pos:
-        for num in range(1, 10):
-            if valid(bo, pos, num):
-                print(num)
+        row, col = pos
+    else:
+        return True
+
+    for num in range(1, 10):
+        if valid(bo, (row, col), num):
+
+            bo[row][col] = num
+
+            if solve(bo):
+                return True
+
+            bo[pos[0]][pos[1]] = 0
+
+    return False
 
 
 def valid(bo, pos, num):
@@ -33,6 +45,15 @@ def valid(bo, pos, num):
     for row in range(len(bo)):
         if bo[row][pos[1]] == num:
             return False
+
+    # checks box
+    pos_y = pos[0] // 3
+    pos_x = pos[1] // 3
+
+    for row in range(pos_y*3, pos_y*3 + 3):
+        for col in range(pos_x*3, pos_x*3 + 3):
+            if bo[row][col] == num:
+                return False
 
     return True
 
