@@ -1,2 +1,2 @@
 # Sudoku-Solver
-Algorithm that solves a sudoku
+Algorithm to solve a sudoku
