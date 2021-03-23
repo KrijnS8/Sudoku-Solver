@@ -50,13 +50,12 @@ def valid(bo, pos, num):
     pos_y = pos[0] // 3
     pos_x = pos[1] // 3
 
-    for row in range(pos_y*3, pos_y*3 + 3):
-        for col in range(pos_x*3, pos_x*3 + 3):
+    for row in range(pos_y * 3, pos_y * 3 + 3):
+        for col in range(pos_x * 3, pos_x * 3 + 3):
             if bo[row][col] == num:
                 return False
 
     return True
-
 
 
 def find_empty(bo):
@@ -85,7 +84,6 @@ board = [
     [1, 2, 0, 0, 0, 7, 4, 0, 0],
     [0, 4, 9, 2, 0, 6, 0, 0, 7]
 ]
-
 
 pp = pprint.PrettyPrinter(width=42, compact=True)
 solve(board)
